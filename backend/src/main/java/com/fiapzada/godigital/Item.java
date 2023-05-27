@@ -11,7 +11,7 @@ public class Item {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Integer id;
   private String name;
-  private Integer qntd;
+  private Integer quantity;
   private Double price;
 
   public Integer getId() {
@@ -28,11 +28,11 @@ public class Item {
     this.name = name;
   }
 
-  public Integer getQntd() {
-    return qntd;
+  public Integer getQuantity() {
+    return quantity;
   }
-  public void setQntd(Integer qntd) {
-    this.qntd = qntd;
+  public void setQuantity(Integer quantity) {
+    this.quantity = quantity;
   }
 
   public Double getPrice() {
