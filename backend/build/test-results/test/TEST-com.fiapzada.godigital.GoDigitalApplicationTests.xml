@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.fiapzada.godigital.GoDigitalApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-26T23:37:18" hostname="PhantomThieves" time="0.494">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.fiapzada.godigital.GoDigitalApplicationTests" time="0.494"/>
+  <system-out><![CDATA[20:37:17.888 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.fiapzada.godigital.GoDigitalApplicationTests]: GoDigitalApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:37:17.937 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.fiapzada.godigital.GoDigitalApplication for test class com.fiapzada.godigital.GoDigitalApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2023-05-26T20:37:18.164-03:00  INFO 1270406 --- [    Test worker] c.f.godigital.GoDigitalApplicationTests  : Starting GoDigitalApplicationTests using Java 17.0.7 with PID 1270406 (started by mulukou in /mnt/sdb/Projects/College/go-digital/backend)
+2023-05-26T20:37:18.166-03:00  INFO 1270406 --- [    Test worker] c.f.godigital.GoDigitalApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2023-05-26T20:37:18.702-03:00  INFO 1270406 --- [    Test worker] c.f.godigital.GoDigitalApplicationTests  : Started GoDigitalApplicationTests in 0.673 seconds (process running for 1.343)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
