@@ -12,14 +12,14 @@ public class MainController {
   private ItemRepository itemRepository;
 
   @PostMapping(path="/add") // Map ONLY POST Requests
-  public @ResponseBody String addNewItem (@RequestParam String name, @RequestParam Double price, @RequestParam Integer qntd) {
+  public @ResponseBody String addNewItem (@RequestParam String name, @RequestParam Double price, @RequestParam Integer quantity) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
     Item n = new Item();
     n.setName(name);
     n.setPrice(price);
-    n.setQntd(qntd);
+    n.setQuantity(quantity);
     itemRepository.save(n);
     return "Saved";
   }
