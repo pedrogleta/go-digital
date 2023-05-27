@@ -36,7 +36,7 @@ public class MainController {
     return "Item removed successfully";
   }
 
-  @PatchMapping(path="/")
+  @PutMapping(path="/")
   public @ResponseBody String updateItem (@RequestParam Integer id, @RequestParam String name, @RequestParam Double price, @RequestParam Integer quantity) {
 
     Item newItem = new Item();
