@@ -2,11 +2,7 @@ package com.fiapzada.godigital;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/") // This means URL's start with /demo (after Application path)
@@ -32,5 +28,18 @@ public class MainController {
   public @ResponseBody Iterable<Item> getAllUsers() {
     // This returns a JSON or XML with the users
     return itemRepository.findAll();
+  }
+
+  @DeleteMapping(path="/delete")
+  public @ResponseBody String removeItem (@RequestParam Integer id) {
+    itemRepository.deleteById(id);
+    return "Item removed successfully";
+  }
+
+  @PatchMapping(path="/update")
+  public @ResponseBody String updateItem (@RequestParam Integer id) {
+    Item newItem = new Item();
+    itemRepository.findById(id);
+    return "Item updated successfully";
   }
 }
