@@ -1,6 +1,6 @@
-import { DashboardIcon } from './icons/DashboardIcon';
-import { ItemsIcon } from './icons/ItemsIcon';
-import { TransactionsIcon } from './icons/TransactionsIcon';
+import { DashboardIcon } from "./icons/DashboardIcon";
+import { ItemsIcon } from "./icons/ItemsIcon";
+import { TransactionsIcon } from "./icons/TransactionsIcon";
 
 export const Sidebar = () => (
   <div className="flex flex-col">
