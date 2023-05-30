@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { Item } from "./Item";
-import { IAPIItem } from "@/types/items";
-import { axiosClient } from "@/utils/axios";
+import { useEffect, useState } from 'react';
+import { Item } from './Item';
+import { IAPIItem } from '@/types/items';
+import { api } from '@/utils/axios';
 
 export const MainSection = () => {
   const [items, setItems] = useState<IAPIItem[]>([]);
 
   useEffect(() => {
-    axiosClient.get("/").then((response) => setItems(response.data));
+    api.get('/').then((response) => setItems(response.data));
   }, [setItems]);
 
   return (
@@ -17,7 +17,8 @@ export const MainSection = () => {
       <div className="flex flex-row w-full mb-1">
         <h2 className="mr-auto">Nome</h2>
         <h2 className="mr-8">Quantidade</h2>
-        <h2>Preço</h2>
+        <h2 className="min-w-[100px] flex justify-end mr-3">Preço</h2>
+        <div className="flex flex-row min-w-[100px]"></div>
       </div>
 
       <div className="overflow-auto h-[97%]">
