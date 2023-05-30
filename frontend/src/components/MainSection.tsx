@@ -18,6 +18,7 @@ export const MainSection = () => {
         <h2 className="mr-auto">Nome</h2>
         <h2 className="mr-8">Quantidade</h2>
         <h2 className="min-w-[100px] flex justify-end mr-3">Preço</h2>
+        <div className="flex flex-row min-w-[100px]"></div>
       </div>
 
       <div className="overflow-auto h-[97%]">
