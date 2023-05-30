@@ -4,7 +4,10 @@ import { Sidebar } from '@/components/Sidebar';
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-2 grid-rows-[60px_minmax(1px,_1fr)0.75rem] overflow-auto h-screen">
+    <div
+      id="main"
+      className="grid grid-cols-2 grid-rows-[60px_minmax(1px,_1fr)0.75rem] overflow-auto h-screen"
+    >
       <div className="max-h-16 flex col-span-3">
         <Header />
       </div>
