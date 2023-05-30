@@ -12,7 +12,7 @@ export const MagnifyingGlassIcon = (props: IMagnifyingGlassIconProps) => (
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
-    <rect width="25" height="25" fill="url(#pattern0)" fill-opacity="0.7" />
+    <rect width="25" height="25" fill="url(#pattern0)" fillOpacity="0.7" />
     <defs>
       <pattern
         id="pattern0"
