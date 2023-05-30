@@ -13,7 +13,7 @@ public class MainController {
 
   @CrossOrigin(origins = "http://localhost:3000")
   @PostMapping(path="/") // Map ONLY POST Requests
-  public @ResponseBody String addNewItem (@RequestParam String name, @RequestParam Double price, @RequestParam Integer quantity) {
+  public @ResponseBody Item addNewItem (@RequestParam String name, @RequestParam Double price, @RequestParam Integer quantity) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
@@ -21,8 +21,7 @@ public class MainController {
     n.setName(name);
     n.setPrice(price);
     n.setQuantity(quantity);
-    itemRepository.save(n);
-    return "Saved";
+    return itemRepository.save(n);
   }
 
   @CrossOrigin(origins = "http://localhost:3000")
