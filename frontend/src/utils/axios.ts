@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const axiosClient = axios.create({
-  baseURL: "http://localhost:3001/item",
+export const api = axios.create({
+  baseURL: 'http://localhost:3001/item',
   headers: {
     post: {
-      "Access-Control-Allow-Origin": true,
+      'Access-Control-Allow-Origin': true,
     },
   },
 });

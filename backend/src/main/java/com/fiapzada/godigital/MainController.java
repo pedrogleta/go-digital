@@ -27,8 +27,8 @@ public class MainController {
 
   @CrossOrigin(origins = "http://localhost:3000")
   @GetMapping(path="/")
-  public @ResponseBody Iterable<Item> getAllUsers() {
-    // This returns a JSON or XML with the users
+  public @ResponseBody Iterable<Item> getAllItems() {
+    // This returns a JSON or XML with the items
     return itemRepository.findAll();
   }
 

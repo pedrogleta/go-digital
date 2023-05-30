@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react';
 import { Item } from './Item';
 import { IAPIItem } from '@/types/items';
-import { axiosClient } from '@/utils/axios';
+import { api } from '@/utils/axios';
 
 export const MainSection = () => {
   const [items, setItems] = useState<IAPIItem[]>([]);
 
   useEffect(() => {
-    axiosClient.get('/').then((response) => setItems(response.data));
+    api.get('/').then((response) => setItems(response.data));
   }, [setItems]);
 
   return (
