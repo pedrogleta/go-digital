@@ -1,22 +1,28 @@
 import { IAPIItem } from '@/types/items';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { MainSection } from './MainSection';
 
 export interface IEditItemModalProps {
   isOpen: boolean;
   handleEditItem: (name: string, quantity: number, price: number) => void;
   closeModal: () => void;
+  currentItem?: Omit<IAPIItem, 'id'>;
 }
 
 Modal.setAppElement('#main');
 
 export const EditItemModal = (props: IEditItemModalProps) => {
-  const { isOpen, handleEditItem, closeModal } = props;
+  const { isOpen, handleEditItem, closeModal, currentItem } = props;
 
-  const [name, setName] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [price, setPrice] = useState('');
+  const [name, setName] = useState(currentItem?.name || '');
+  const [quantity, setQuantity] = useState(currentItem?.quantity.toString());
+  const [price, setPrice] = useState(currentItem?.price.toString());
+
+  useEffect(() => {
+    setName(currentItem?.name || '');
+    setQuantity(currentItem?.quantity.toString() || '');
+    setPrice(currentItem?.price.toString() || '');
+  }, [setName, setPrice, setQuantity, currentItem]);
 
   return (
     <Modal

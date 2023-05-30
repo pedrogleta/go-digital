@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Item } from './Item';
 import { IAPIItem } from '@/types/items';
 import { api } from '@/utils/axios';
@@ -21,6 +21,11 @@ export const MainSection = () => {
   useEffect(() => {
     api.get('/').then((response) => setItems(response.data));
   }, [setItems]);
+
+  const currentItem = useMemo(
+    () => items.find((item) => item.id === currentItemId),
+    [items, currentItemId],
+  );
 
   function handleCreateItem(name: string, quantity: number, price: number) {
     api
@@ -100,6 +105,7 @@ export const MainSection = () => {
       <EditItemModal
         isOpen={isEditModalOpen}
         closeModal={() => setIsEditModalOpen(false)}
+        currentItem={currentItem}
         handleEditItem={(name, quantity, price) =>
           handleEditItem(currentItemId, name, quantity, price)
         }

@@ -1,7 +1,5 @@
-import { IAPIItem } from '@/types/items';
 import { useState } from 'react';
 import Modal from 'react-modal';
-import { MainSection } from './MainSection';
 
 export interface IAddItemModalProps {
   isOpen: boolean;
