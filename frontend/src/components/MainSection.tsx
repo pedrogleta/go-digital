@@ -58,7 +58,11 @@ export const MainSection = () => {
         + Add Item
       </button>
 
-      <AddItemModal isOpen={isModalOpen} handleCreateItem={handleCreateItem} />
+      <AddItemModal
+        isOpen={isModalOpen}
+        handleCreateItem={handleCreateItem}
+        closeModal={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

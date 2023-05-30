@@ -6,12 +6,13 @@ import { MainSection } from './MainSection';
 export interface IAddItemModalProps {
   isOpen: boolean;
   handleCreateItem: (name: string, quantity: number, price: number) => void;
+  closeModal: () => void;
 }
 
 Modal.setAppElement('#main');
 
 export const AddItemModal = (props: IAddItemModalProps) => {
-  const { isOpen, handleCreateItem } = props;
+  const { isOpen, handleCreateItem, closeModal } = props;
 
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -23,13 +24,16 @@ export const AddItemModal = (props: IAddItemModalProps) => {
       style={{
         content: {
           width: 500,
-          height: 500,
+          height: 380,
           margin: 'auto',
         },
       }}
     >
-      <div className="h-full flex flex-col justify-center">
-        <h1 className="mb-4 font-extrabold leading-none tracking-tight text-gray-900 text-4xl mx-auto">
+      <div className="w-fit ml-auto cursor-pointer" onClick={closeModal}>
+        X
+      </div>
+      <div className="h-fit flex flex-col justify-center mt-8">
+        <h1 className="font-extrabold leading-none tracking-tight text-gray-900 text-4xl mx-auto mb-8">
           Adicionar Item
         </h1>
 
@@ -61,9 +65,12 @@ export const AddItemModal = (props: IAddItemModalProps) => {
         <button
           className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center shadow"
           type="submit"
-          onClick={() =>
-            handleCreateItem(name, Number(quantity), Number(price))
-          }
+          onClick={() => {
+            handleCreateItem(name, Number(quantity), Number(price));
+            setName('');
+            setQuantity('');
+            setPrice('');
+          }}
         >
           Salvar
         </button>
