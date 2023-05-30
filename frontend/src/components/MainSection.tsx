@@ -29,6 +29,14 @@ export const MainSection = () => {
       });
   }
 
+  function handleEditItem(id: number) {}
+
+  function handleDeleteItem(id: number) {
+    api.delete(`/?id=${id}`).then(() => {
+      setItems(items.filter((item) => item.id !== id));
+    });
+  }
+
   return (
     <div className="w-full bg-purple-300 p-2 rounded-md h-full min-h-full shadow">
       <div className="flex flex-row w-full mb-1">
@@ -46,6 +54,8 @@ export const MainSection = () => {
             name={item.name}
             price={item.price}
             quantity={item.quantity}
+            handleDeleteItem={handleDeleteItem}
+            handleEditItem={handleEditItem}
           />
         ))}
       </div>
