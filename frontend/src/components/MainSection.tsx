@@ -8,11 +8,6 @@ import { AddItemModal } from './AddItemModal';
 import { EditItemModal } from './EditItemModal';
 
 export const MainSection = () => {
-  const [_, setNewItem] = useState<Omit<IAPIItem, 'id'>>({
-    name: '',
-    price: 0,
-    quantity: 0,
-  });
   const [items, setItems] = useState<IAPIItem[]>([]);
   const [currentItemId, setCurrentItemId] = useState<number>(0);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -93,7 +88,7 @@ export const MainSection = () => {
         type="button"
         onClick={() => setIsAddModalOpen(true)}
       >
-        + Add Item
+        + Adicionar Item
       </button>
 
       <AddItemModal
