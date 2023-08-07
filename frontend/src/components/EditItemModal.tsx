@@ -1,40 +1,29 @@
-import { IAPIItem } from '@/types/items';
-import { useEffect, useState } from 'react';
-import Modal from 'react-modal';
+import { IAPIItem } from "@/types/items";
+import { useEffect, useState } from "react";
+import Modal from "./Modal";
 
 export interface IEditItemModalProps {
   isOpen: boolean;
   handleEditItem: (name: string, quantity: number, price: number) => void;
   closeModal: () => void;
-  currentItem?: Omit<IAPIItem, 'id'>;
+  currentItem?: Omit<IAPIItem, "id">;
 }
-
-Modal.setAppElement('#main');
 
 export const EditItemModal = (props: IEditItemModalProps) => {
   const { isOpen, handleEditItem, closeModal, currentItem } = props;
 
-  const [name, setName] = useState(currentItem?.name || '');
+  const [name, setName] = useState(currentItem?.name || "");
   const [quantity, setQuantity] = useState(currentItem?.quantity.toString());
   const [price, setPrice] = useState(currentItem?.price.toString());
 
   useEffect(() => {
-    setName(currentItem?.name || '');
-    setQuantity(currentItem?.quantity.toString() || '');
-    setPrice(currentItem?.price.toString() || '');
+    setName(currentItem?.name || "");
+    setQuantity(currentItem?.quantity.toString() || "");
+    setPrice(currentItem?.price.toString() || "");
   }, [setName, setPrice, setQuantity, currentItem]);
 
   return (
-    <Modal
-      isOpen={isOpen}
-      style={{
-        content: {
-          width: 500,
-          height: 380,
-          margin: 'auto',
-        },
-      }}
-    >
+    <Modal open={isOpen} onCancel={closeModal}>
       <div className="w-fit ml-auto cursor-pointer" onClick={closeModal}>
         X
       </div>
@@ -73,9 +62,9 @@ export const EditItemModal = (props: IEditItemModalProps) => {
           type="submit"
           onClick={() => {
             handleEditItem(name, Number(quantity), Number(price));
-            setName('');
-            setQuantity('');
-            setPrice('');
+            setName("");
+            setQuantity("");
+            setPrice("");
           }}
         >
           Salvar

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Modal from 'react-modal';
+import { useState } from "react";
+import Modal from "./Modal";
 
 export interface IAddItemModalProps {
   isOpen: boolean;
@@ -7,26 +7,15 @@ export interface IAddItemModalProps {
   closeModal: () => void;
 }
 
-Modal.setAppElement('#main');
-
 export const AddItemModal = (props: IAddItemModalProps) => {
   const { isOpen, handleCreateItem, closeModal } = props;
 
-  const [name, setName] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [price, setPrice] = useState('');
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [price, setPrice] = useState("");
 
   return (
-    <Modal
-      isOpen={isOpen}
-      style={{
-        content: {
-          width: 500,
-          height: 380,
-          margin: 'auto',
-        },
-      }}
-    >
+    <Modal open={isOpen} onCancel={closeModal}>
       <div className="w-fit ml-auto cursor-pointer" onClick={closeModal}>
         X
       </div>
@@ -65,9 +54,9 @@ export const AddItemModal = (props: IAddItemModalProps) => {
           type="submit"
           onClick={() => {
             handleCreateItem(name, Number(quantity), Number(price));
-            setName('');
-            setQuantity('');
-            setPrice('');
+            setName("");
+            setQuantity("");
+            setPrice("");
           }}
         >
           Salvar
