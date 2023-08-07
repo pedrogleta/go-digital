@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import editIcon from '../../public/edit.svg';
 import deleteIcon from '../../public/delete.svg';
-import { api } from '@/utils/axios';
 
 interface ItemProps {
   id: number;

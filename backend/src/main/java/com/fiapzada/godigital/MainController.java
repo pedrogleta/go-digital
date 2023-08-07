@@ -39,17 +39,13 @@ public class MainController {
   }
 
   @CrossOrigin(origins = "http://localhost:3000")
-  @PutMapping(path="/")
+  @PatchMapping(path="/")
   public @ResponseBody String updateItem (@RequestParam Integer id, @RequestParam String name, @RequestParam Double price, @RequestParam Integer quantity) {
-
-    Item newItem = new Item();
-    newItem.setId(id);
-    newItem.setName(name);
-    newItem.setQuantity(quantity);
-    newItem.setPrice(price);
-
-    itemRepository.deleteById(id);
-    itemRepository.save(newItem);
+    Item item = itemRepository.findById(id).get();
+    item.setName(name);
+    item.setPrice(price);
+    item.setQuantity(quantity);
+    itemRepository.save(item);
     return "Item updated successfully";
   }
 }
