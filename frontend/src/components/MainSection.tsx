@@ -39,7 +39,7 @@ export const MainSection = () => {
     price: number,
   ) {
     api
-      .put(`/?id=${id}&name=${name}&quantity=${quantity}&price=${price}`)
+      .patch(`/?id=${id}&name=${name}&quantity=${quantity}&price=${price}`)
       .then(() => {
         setItems((state) => {
           const itemIndex = state.findIndex((item) => item.id === id);
