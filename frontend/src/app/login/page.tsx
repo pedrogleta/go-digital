@@ -4,9 +4,11 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../../lib/firebase-config";
+import { auth } from "@/lib/firebase-config";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { Button, Card, Container, Form, Heading, Input } from "./styles";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -36,26 +38,30 @@ export default function SignIn() {
 
   return (
     <>
-      <input
-        type="text"
-        className="border-red-300 border-4"
-        placeholder="email"
-        onChange={(v) => {
-          setEmail(v.target.value);
-        }}
-      />
-      <input
-        type="text"
-        className="border-red-300 border-4"
-        placeholder="password"
-        onChange={(v) => {
-          setPassword(v.target.value);
-        }}
-      />
-      <button onClick={() => signIn(email, password)}>Sign In</button>
-      <button className="ml-5" onClick={() => signUp(email, password)}>
-        Sign Up
-      </button>
+      <Container>
+        <Card>
+          <Heading>Sign In</Heading>
+          <Form>
+            <Input
+              type="text"
+              className="border-red-300 border-4"
+              placeholder="email"
+              onChange={(v) => {
+                setEmail(v.target.value);
+              }}
+            />
+            <Input
+              type="password"
+              placeholder="password"
+              onChange={(v) => {
+                setPassword(v.target.value);
+              }}
+            />
+            <Button onClick={() => signIn(email, password)}>Sign In</Button>
+            <Button onClick={() => signUp(email, password)}>Sign Up</Button>
+          </Form>
+        </Card>
+      </Container>
     </>
   );
 }
