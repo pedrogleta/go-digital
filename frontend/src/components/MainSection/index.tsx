@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Item } from "./Item";
+import { Item } from "../Item";
 import { IAPIItem } from "@/types/items";
 import { api } from "@/utils/axios";
-import { AddItemModal } from "./AddItemModal";
-import { EditItemModal } from "./EditItemModal";
+import { AddItemModal } from "../AddItemModal";
+import { EditItemModal } from "../EditItemModal";
+import { Table, TableBody, TableHead, TableHeader, TableRow } from "./styles";
 
 export const MainSection = () => {
   const [items, setItems] = useState<IAPIItem[]>([]);
@@ -58,49 +59,53 @@ export const MainSection = () => {
   }
 
   return (
-    <div>
-      <div>
-        <h2>Nome</h2>
-        <h2>Quantidade</h2>
-        <h2>Preço</h2>
-        <div></div>
-      </div>
+    <>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableHeader>Nome</TableHeader>
+            <TableHeader>Quantidade</TableHeader>
+            <TableHeader>Preço</TableHeader>
+            <TableHeader>Ações</TableHeader>
+          </TableRow>
+        </TableHead>
 
-      <div className="overflow-auto">
-        {items.map((item) => (
-          <Item
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            price={item.price}
-            quantity={item.quantity}
-            handleDeleteItem={handleDeleteItem}
-            handleEditItem={(id) => {
-              setCurrentItemId(id);
-              setIsEditModalOpen(true);
-            }}
-          />
-        ))}
-      </div>
+        <TableBody>
+          {items.map((item) => (
+            <Item
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              price={item.price}
+              quantity={item.quantity}
+              handleDeleteItem={handleDeleteItem}
+              handleEditItem={(id) => {
+                setCurrentItemId(id);
+                setIsEditModalOpen(true);
+              }}
+            />
+          ))}
+        </TableBody>
+
+        <AddItemModal
+          isOpen={isAddModalOpen}
+          handleCreateItem={handleCreateItem}
+          closeModal={() => setIsAddModalOpen(false)}
+        />
+
+        <EditItemModal
+          isOpen={isEditModalOpen}
+          closeModal={() => setIsEditModalOpen(false)}
+          currentItem={currentItem}
+          handleEditItem={(name, quantity, price) =>
+            handleEditItem(currentItemId, name, quantity, price)
+          }
+        />
+      </Table>
 
       <button type="button" onClick={() => setIsAddModalOpen(true)}>
         + Adicionar Item
       </button>
-
-      <AddItemModal
-        isOpen={isAddModalOpen}
-        handleCreateItem={handleCreateItem}
-        closeModal={() => setIsAddModalOpen(false)}
-      />
-
-      <EditItemModal
-        isOpen={isEditModalOpen}
-        closeModal={() => setIsEditModalOpen(false)}
-        currentItem={currentItem}
-        handleEditItem={(name, quantity, price) =>
-          handleEditItem(currentItemId, name, quantity, price)
-        }
-      />
-    </div>
+    </>
   );
 };

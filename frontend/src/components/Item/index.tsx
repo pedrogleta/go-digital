@@ -1,6 +1,8 @@
-import Image from 'next/image';
-import editIcon from '../../public/edit.svg';
-import deleteIcon from '../../public/delete.svg';
+import Image from "next/image";
+
+import deleteIcon from "@/../public/delete.svg";
+import editIcon from "@/../public/edit.svg";
+import { TableData, TableRow } from "./styles";
 
 interface ItemProps {
   id: number;
@@ -13,11 +15,11 @@ interface ItemProps {
 
 export const Item = (props: ItemProps) => {
   return (
-    <div className="flex flex-row w-full bg-white shadow rounded px-5 py-2 my-2">
-      <h2 className="mr-auto">{props.name}</h2>
-      <h2 className="mr-8">{props.quantity}</h2>
-      <h2 className="min-w-[100px] flex justify-end">R${props.price}</h2>
-      <div className="flex flex-row min-w-[100px] justify-end">
+    <TableRow>
+      <TableData>{props.name}</TableData>
+      <TableData>{props.quantity}</TableData>
+      <TableData>R${props.price}</TableData>
+      <TableData>
         <Image
           src={editIcon}
           alt="Edit"
@@ -33,7 +35,7 @@ export const Item = (props: ItemProps) => {
           style={{ marginLeft: 20 }}
           onClick={() => props.handleDeleteItem(props.id)}
         />
-      </div>
-    </div>
+      </TableData>
+    </TableRow>
   );
 };
