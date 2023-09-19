@@ -29,7 +29,6 @@ export const Modal = (props: IModalProps) => {
     children,
     className,
     confirmButtonText = "Confirm",
-    confirmDestructive,
     disableCancelButton = false,
     disableConfirmButton = false,
     modalWrapperClass,
@@ -40,8 +39,6 @@ export const Modal = (props: IModalProps) => {
     positioning,
     showFooterButtons = false,
     title,
-    titleWarn,
-    titleCaution,
   } = props;
 
   const transitionDurationStart = 0.2;

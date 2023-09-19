@@ -1,12 +1,11 @@
 "use client";
 
 import {
-  getRedirectResult,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../../lib/firebase-config";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function SignIn() {
