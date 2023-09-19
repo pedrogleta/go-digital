@@ -8,6 +8,12 @@ import { auth } from "@/lib/firebase-config";
 
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import {
+  AppContainer,
+  HeaderContainer,
+  MainContainer,
+  SidebarContainer,
+} from "./styles";
 
 export default function Page() {
   const router = useRouter();
@@ -20,15 +26,19 @@ export default function Page() {
 
   return (
     <div id="main">
-      <div>
+      <HeaderContainer>
         <Header />
-      </div>
-      <div>
-        <Sidebar />
-      </div>
-      <div>
-        <MainSection />
-      </div>
+      </HeaderContainer>
+
+      <AppContainer>
+        <SidebarContainer>
+          <Sidebar />
+        </SidebarContainer>
+
+        <MainContainer>
+          <MainSection />
+        </MainContainer>
+      </AppContainer>
     </div>
   );
 }
