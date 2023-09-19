@@ -9,4 +9,8 @@ export const TableRow = styled.tr`
 export const TableData = styled.td`
   border: 1px solid #000;
   padding: 5px;
+
+  &:last-child {
+    text-align: center;
+  }
 `;
