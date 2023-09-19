@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useEffect, useMemo, useState } from 'react';
-import { Item } from './Item';
-import { IAPIItem } from '@/types/items';
-import { api } from '@/utils/axios';
-import { AddItemModal } from './AddItemModal';
-import { EditItemModal } from './EditItemModal';
+import { useEffect, useMemo, useState } from "react";
+import { Item } from "./Item";
+import { IAPIItem } from "@/types/items";
+import { api } from "@/utils/axios";
+import { AddItemModal } from "./AddItemModal";
+import { EditItemModal } from "./EditItemModal";
 
 export const MainSection = () => {
   const [items, setItems] = useState<IAPIItem[]>([]);
@@ -14,12 +14,12 @@ export const MainSection = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   useEffect(() => {
-    api.get('/').then((response) => setItems(response.data));
+    api.get("/").then((response) => setItems(response.data));
   }, [setItems]);
 
   const currentItem = useMemo(
     () => items.find((item) => item.id === currentItemId),
-    [items, currentItemId],
+    [items, currentItemId]
   );
 
   function handleCreateItem(name: string, quantity: number, price: number) {
@@ -36,7 +36,7 @@ export const MainSection = () => {
     id: number,
     name: string,
     quantity: number,
-    price: number,
+    price: number
   ) {
     api
       .patch(`/?id=${id}&name=${name}&quantity=${quantity}&price=${price}`)
@@ -58,12 +58,12 @@ export const MainSection = () => {
   }
 
   return (
-    <div className="w-full bg-purple-300 p-2 rounded-md h-full min-h-full shadow">
-      <div className="flex flex-row w-full mb-1">
-        <h2 className="mr-auto">Nome</h2>
-        <h2 className="mr-8">Quantidade</h2>
-        <h2 className="min-w-[100px] flex justify-end mr-3">Preço</h2>
-        <div className="flex flex-row min-w-[100px]"></div>
+    <div>
+      <div>
+        <h2>Nome</h2>
+        <h2>Quantidade</h2>
+        <h2>Preço</h2>
+        <div></div>
       </div>
 
       <div className="overflow-auto">
@@ -83,11 +83,7 @@ export const MainSection = () => {
         ))}
       </div>
 
-      <button
-        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
-        type="button"
-        onClick={() => setIsAddModalOpen(true)}
-      >
+      <button type="button" onClick={() => setIsAddModalOpen(true)}>
         + Adicionar Item
       </button>
 
