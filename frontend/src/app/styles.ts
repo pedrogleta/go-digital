@@ -11,7 +11,7 @@ export const colors = {
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 60px;
+  height: 8vh;
   background-color: ${colors.primary};
   display: flex;
   align-items: center;
@@ -20,7 +20,6 @@ export const HeaderContainer = styled.div`
 
 export const AppContainer = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: row;
 `;
@@ -36,7 +35,7 @@ export const SidebarContainer = styled.div`
 
 export const MainContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 87.5vh;
   background-color: ${colors.tertiary};
   display: flex;
   flex-direction: column;

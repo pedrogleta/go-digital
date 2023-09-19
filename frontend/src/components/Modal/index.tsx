@@ -67,7 +67,12 @@ export const Modal = (props: IModalProps) => {
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            style={{ marginRight: "100px", backgroundColor: "white" }}
+            style={{
+              margin: "auto",
+              borderRadius: "0.5rem",
+              boxShadow: "0 0 0.5rem 0 rgba(0, 0, 0, 0.25)",
+              backgroundColor: "white",
+            }}
             transition={{
               default: {
                 duration: transitionDurationStart,

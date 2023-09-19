@@ -7,8 +7,6 @@ export const Container = styled.div`
   display: flex;
   align-items: start;
   justify-content: space-between;
-  padding: 4rem;
-  padding-top: 20rem;
 `;
 
 export const InnerContainer = styled.div`
@@ -22,6 +20,7 @@ export const ModalBackground = styled.div`
   position: absolute;
   inset: 0;
   background-color: gray;
+  opacity: 0;
 `;
 
 export const ModalHeader = styled.div`
@@ -59,7 +58,7 @@ export const ModalHeader = styled.div`
 export const ModalContent = styled.div`
   position: relative;
   height: 100%;
-  padding: 4rem;
+  padding: 3rem 4rem;
   border: 1px solid #e5e7eb;
 `;
 
