@@ -1,49 +1,5 @@
 import styled from "styled-components";
 
-// export const Container = styled.div`
-//   position: fixed;
-//   z-index: 1;
-//   left: 0;
-//   top: 0;
-//   width: 100vw;
-//   height: 100vh;
-// `;
-
-// export const ModalContent = styled.div`
-//   background-color: #fefefe;
-//   margin: 15% auto;
-//   padding: 20px;
-//   border: 1px solid #888;
-//   width: 80%;
-// `;
-
-// export const ModalHeader = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
-
-// export const ModalTitle = styled.h2`
-//   margin: 0;
-// `;
-
-// export const CloseButton = styled.span`
-//   color: #aaa;
-//   font-size: 28px;
-//   font-weight: bold;
-//   cursor: pointer;
-// `;
-
-// export const ModalBody = styled.div`
-//   margin-top: 20px;
-// `;
-
-// export const ModalFooter = styled.div`
-//   margin-top: 20px;
-//   display: flex;
-//   justify-content: flex-end;
-// `;
-
 export const Container = styled.div`
   position: fixed;
   inset: 0;
@@ -53,6 +9,13 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 4rem;
   padding-top: 20rem;
+`;
+
+export const InnerContainer = styled.div`
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const ModalBackground = styled.div`
@@ -105,4 +68,42 @@ export const ModalFooter = styled.div`
   justify-content: flex-end;
   padding: 3rem 4rem;
   margin-top: 6rem;
+`;
+
+export const CloseButton = styled.span`
+  width: fit-content;
+  margin-left: auto;
+  cursor: pointer;
+`;
+
+export const ModalTitle = styled.h2`
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #1a1a1a;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 2rem;
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  height: 2rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+`;
+
+export const Button = styled.button`
+  width: 100%;
+  height: 2rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #ccc;
+  cursor: pointer;
+  &:hover {
+    background-color: #bbb;
+  }
 `;

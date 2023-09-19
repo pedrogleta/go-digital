@@ -1,7 +1,13 @@
 import { IAPIItem } from "@/types/items";
 import { useEffect, useState } from "react";
 import Modal from "@/components/Modal";
-import { Button, CloseButton, Container, Input, ModalTitle } from "./styles";
+import {
+  Button,
+  CloseButton,
+  InnerContainer,
+  Input,
+  ModalTitle,
+} from "../styles";
 
 export interface IEditItemModalProps {
   isOpen: boolean;
@@ -26,7 +32,7 @@ export const EditItemModal = (props: IEditItemModalProps) => {
   return (
     <Modal open={isOpen} onCancel={closeModal}>
       <CloseButton onClick={closeModal}>X</CloseButton>
-      <Container>
+      <InnerContainer>
         <ModalTitle>Editar Item</ModalTitle>
 
         <Input
@@ -62,7 +68,7 @@ export const EditItemModal = (props: IEditItemModalProps) => {
         >
           Salvar
         </Button>
-      </Container>
+      </InnerContainer>
     </Modal>
   );
 };

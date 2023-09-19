@@ -4,8 +4,8 @@ import { useEffect, useMemo, useState } from "react";
 import { Item } from "../Item";
 import { IAPIItem } from "@/types/items";
 import { api } from "@/utils/axios";
-import { AddItemModal } from "../AddItemModal";
-import { EditItemModal } from "../EditItemModal";
+import { AddItemModal } from "../Modal/AddItemModal";
+import { EditItemModal } from "../Modal/EditItemModal";
 import {
   Button,
   Container,
