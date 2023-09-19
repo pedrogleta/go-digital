@@ -14,6 +14,7 @@ export const Card = styled.div`
   height: 400px;
   border-radius: 5px;
   border: 2px solid ${colors.primary};
+  background-color: ${colors.tertiary};
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   margin-top: 100px;
   padding: 20px;
@@ -55,6 +56,7 @@ export const Button = styled.button`
   background-color: ${colors.secondary};
   &:hover {
     background-color: ${colors.primary};
+    transition: 0.5s;
   }
 `;
 
