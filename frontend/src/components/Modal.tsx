@@ -38,7 +38,7 @@ export const Modal = (props: IModalProps) => {
     onConfirm,
     open = false,
     positioning,
-    showFooterButtons = true,
+    showFooterButtons = false,
     title,
     titleWarn,
     titleCaution,
@@ -86,7 +86,7 @@ export const Modal = (props: IModalProps) => {
               transition: { duration: transitionDurationEnd },
             }}
             className={cn(
-              `w-full z-50 pt-1 overflow-y-auto bg-white rounded
+              `w-auto z-50 pt-1 overflow-y-auto bg-white rounded
               shadow-xl shadow-gray-300 max-h-[calc(100%_-_4rem)] lg:max-h-[calc(100%_-_10rem)]`,
               modalWrapperClass,
               positioning || "relative mx-auto"
