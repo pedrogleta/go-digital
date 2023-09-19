@@ -1,17 +1,33 @@
 import styled from "styled-components";
+import { colors } from "@/app/styles";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10%;
+  height: 100%;
+  background-color: ${colors.quaternary};
+`;
+
+export const Card = styled.div`
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  border: 2px solid ${colors.primary};
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  margin-top: 100px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Input = styled.input`
   width: 300px;
   height: 30px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid ${colors.primary};
   margin-bottom: 10px;
   padding-left: 10px;
   font-size: 16px;
@@ -25,18 +41,6 @@ export const Form = styled.form`
   align-items: center;
 `;
 
-export const Card = styled.div`
-  width: 400px;
-  height: 400px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const Button = styled.button`
   width: 300px;
   height: 30px;
@@ -48,14 +52,14 @@ export const Button = styled.button`
   color: #333;
   outline: none;
   cursor: pointer;
-  background-color: #ccc;
+  background-color: ${colors.secondary};
   &:hover {
-    background-color: #999;
+    background-color: ${colors.primary};
   }
 `;
 
 export const Heading = styled.div`
   font-size: 30px;
-  color: #333;
+  font-weight: bold;
   margin-bottom: 20px;
 `;

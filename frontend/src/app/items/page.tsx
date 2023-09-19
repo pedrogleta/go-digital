@@ -13,7 +13,7 @@ import {
   HeaderContainer,
   MainContainer,
   SidebarContainer,
-} from "./styles";
+} from "@/app/styles";
 
 export default function Page() {
   const router = useRouter();
