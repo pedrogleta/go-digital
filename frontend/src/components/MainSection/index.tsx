@@ -6,7 +6,15 @@ import { IAPIItem } from "@/types/items";
 import { api } from "@/utils/axios";
 import { AddItemModal } from "../AddItemModal";
 import { EditItemModal } from "../EditItemModal";
-import { Table, TableBody, TableHead, TableHeader, TableRow } from "./styles";
+import {
+  Button,
+  Container,
+  Table,
+  TableBody,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./styles";
 
 export const MainSection = () => {
   const [items, setItems] = useState<IAPIItem[]>([]);
@@ -59,7 +67,7 @@ export const MainSection = () => {
   }
 
   return (
-    <>
+    <Container>
       <Table>
         <TableHead>
           <TableRow>
@@ -86,26 +94,26 @@ export const MainSection = () => {
             />
           ))}
         </TableBody>
-
-        <AddItemModal
-          isOpen={isAddModalOpen}
-          handleCreateItem={handleCreateItem}
-          closeModal={() => setIsAddModalOpen(false)}
-        />
-
-        <EditItemModal
-          isOpen={isEditModalOpen}
-          closeModal={() => setIsEditModalOpen(false)}
-          currentItem={currentItem}
-          handleEditItem={(name, quantity, price) =>
-            handleEditItem(currentItemId, name, quantity, price)
-          }
-        />
       </Table>
 
-      <button type="button" onClick={() => setIsAddModalOpen(true)}>
+      <Button type="button" onClick={() => setIsAddModalOpen(true)}>
         + Adicionar Item
-      </button>
-    </>
+      </Button>
+
+      <AddItemModal
+        isOpen={isAddModalOpen}
+        handleCreateItem={handleCreateItem}
+        closeModal={() => setIsAddModalOpen(false)}
+      />
+
+      <EditItemModal
+        isOpen={isEditModalOpen}
+        closeModal={() => setIsEditModalOpen(false)}
+        currentItem={currentItem}
+        handleEditItem={(name, quantity, price) =>
+          handleEditItem(currentItemId, name, quantity, price)
+        }
+      />
+    </Container>
   );
 };
