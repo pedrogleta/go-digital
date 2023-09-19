@@ -67,6 +67,7 @@ export const Modal = (props: IModalProps) => {
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
+            style={{ marginRight: "100px", backgroundColor: "white" }}
             transition={{
               default: {
                 duration: transitionDurationStart,
@@ -80,15 +81,17 @@ export const Modal = (props: IModalProps) => {
             }}
           >
             {/* Modal Header */}
-            <ModalHeader>
-              {title && (
+
+            {title && (
+              <ModalHeader>
                 <div>
                   <div>
                     <h2>{title}</h2>
                   </div>
                 </div>
-              )}
-            </ModalHeader>
+              </ModalHeader>
+            )}
+
             {/* /Modal Header */}
 
             {/* Modal Content */}
