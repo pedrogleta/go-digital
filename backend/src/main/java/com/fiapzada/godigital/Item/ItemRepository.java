@@ -1,7 +1,5 @@
-package com.fiapzada.godigital;
+package com.fiapzada.godigital.Item;
 
 import org.springframework.data.repository.CrudRepository;
-
-import com.fiapzada.godigital.Item;
 
 public interface ItemRepository extends CrudRepository<Item, Integer> { }

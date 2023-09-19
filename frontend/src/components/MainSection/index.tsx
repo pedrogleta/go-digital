@@ -23,7 +23,7 @@ export const MainSection = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   useEffect(() => {
-    api.get("/").then((response) => setItems(response.data));
+    api.get("/item").then((response) => setItems(response.data));
   }, [setItems]);
 
   const currentItem = useMemo(
@@ -32,13 +32,11 @@ export const MainSection = () => {
   );
 
   function handleCreateItem(name: string, quantity: number, price: number) {
-    api
-      .post(`/?name=${name}&quantity=${quantity}&price=${price}`)
-      .then((response) => {
-        const createdItem = response.data;
-        setItems([...items, createdItem]);
-        setIsAddModalOpen(false);
-      });
+    api.post("/item", { name, quantity, price }).then((response) => {
+      const createdItem = response.data;
+      setItems([...items, createdItem]);
+      setIsAddModalOpen(false);
+    });
   }
 
   function handleEditItem(
@@ -47,21 +45,19 @@ export const MainSection = () => {
     quantity: number,
     price: number
   ) {
-    api
-      .patch(`/?id=${id}&name=${name}&quantity=${quantity}&price=${price}`)
-      .then(() => {
-        setItems((state) => {
-          const itemIndex = state.findIndex((item) => item.id === id);
-          const newState = [...state];
-          newState[itemIndex] = { id, name, quantity, price };
-          return newState;
-        });
-        setIsEditModalOpen(false);
+    api.patch("/item", { id, name, quantity, price }).then(() => {
+      setItems((state) => {
+        const itemIndex = state.findIndex((item) => item.id === id);
+        const newState = [...state];
+        newState[itemIndex] = { id, name, quantity, price };
+        return newState;
       });
+      setIsEditModalOpen(false);
+    });
   }
 
   function handleDeleteItem(id: number) {
-    api.delete(`/?id=${id}`).then(() => {
+    api.delete(`/item?id=${id}`).then(() => {
       setItems(items.filter((item) => item.id !== id));
     });
   }
