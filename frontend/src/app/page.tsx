@@ -1,7 +1,7 @@
 "use client";
 
 import { Header } from "@/components/Header";
-import { MainSection } from "@/components/MainSection";
+import { MainSection } from "@/components/ItemsSection";
 import { Sidebar } from "@/components/Sidebar";
 
 import { auth } from "@/lib/firebase-config";
