@@ -1,6 +1,6 @@
 package com.fiapzada.godigital.LineItem;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,8 +16,8 @@ public class LineItem {
   private Integer transaction_id;
   private Integer quantity;
   private Double  price;
-  private Date created_at;
-  private Date modified_at;
+  private Timestamp created_at;
+  private Timestamp modified_at;
 
   public Integer getId() {
     return id;
@@ -54,17 +54,17 @@ public class LineItem {
     this.price = price;
   }
 
-  public Date getCreatedAt() {
+  public Timestamp getCreatedAt() {
     return created_at;
   }
-  public void setCreatedAt(Date created_at) {
+  public void setCreatedAt(Timestamp created_at) {
     this.created_at = created_at;
   }
 
-  public Date getModifiedAt() {
+  public Timestamp getModifiedAt() {
     return modified_at;
   }
-  public void setModifiedAt(Date modified_at) {
+  public void setModifiedAt(Timestamp modified_at) {
     this.modified_at = modified_at;
   }
 }
