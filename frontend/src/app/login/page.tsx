@@ -22,7 +22,7 @@ export default function SignIn() {
         router.push("/");
       })
       .catch((err) => {
-        console.error("An error occurred on signIn: ", err);
+        console.error("An error occurred on sign in: ", err);
         window.open(err);
       });
   }
@@ -33,7 +33,7 @@ export default function SignIn() {
         router.push("/");
       })
       .catch((err) => {
-        console.error("An error occurred on signIn: ", err);
+        console.error("An error occurred on sign up: ", err);
         window.open(err);
       });
   }
