@@ -18,11 +18,11 @@ import {
 export default function Page() {
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (!auth.currentUser) {
-  //     router.push("/login");
-  //   }
-  // });
+  useEffect(() => {
+    if (!auth.currentUser) {
+      router.push("/login");
+    }
+  });
 
   return (
     <div id="main">
